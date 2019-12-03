@@ -14,13 +14,13 @@ namespace NewRelic.Telemetry.Spans
         /// you can set the <see cref="Span.TraceId">TraceId</see> on each span individually./>
         /// </summary>
         [DataMember(Name = "trace.id")]
-        public string TraceId { get; internal set; }
+        public string? TraceId { get; internal set; }
 
         /// <summary>
         /// Provides additional contextual information that is common to all of the
         /// Spans being reported in this SpanBatch.
         /// </summary>
-        public Dictionary<string,object> Attributes { get; internal set; }
+        public Dictionary<string,object>? Attributes { get; internal set; }
 
         internal SpanBatchCommonProperties()
         {

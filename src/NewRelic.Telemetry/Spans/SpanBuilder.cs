@@ -211,7 +211,7 @@ namespace NewRelic.Telemetry.Spans
                 throw new InvalidOperationException($"{nameof(attribName)} cannot be empty.");
             }
            
-            _attributes[attribName] = attribVal;
+            _attributes[attribName] = attribVal!;
             return this;
         }
     }

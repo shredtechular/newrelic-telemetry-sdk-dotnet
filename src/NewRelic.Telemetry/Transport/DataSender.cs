@@ -23,7 +23,7 @@ namespace NewRelic.Telemetry.Transport
         //Delegate functions in support of unit testing
         private Func<string, Task<HttpResponseMessage>> _httpHandlerImpl;
         private Func<int, Task> _delayerImpl = new Func<int, Task>(async (int milliseconds) => await Task.Delay(milliseconds));
-        private Action<TData, int> _captureSendDataAsyncCallDelegate = null;
+        private Action<TData, int>? _captureSendDataAsyncCallDelegate = null;
 
         protected abstract string EndpointUrl { get; }
 
@@ -35,7 +35,7 @@ namespace NewRelic.Telemetry.Transport
         {
         }
 
-        protected DataSender(IConfiguration configProvider, ILoggerFactory loggerFactory) : this(new TelemetryConfiguration(configProvider), loggerFactory)
+        protected DataSender(IConfiguration configProvider, ILoggerFactory? loggerFactory) : this(new TelemetryConfiguration(configProvider), loggerFactory)
         {
         }
         
@@ -43,7 +43,7 @@ namespace NewRelic.Telemetry.Transport
         {
         }
 
-        protected DataSender(TelemetryConfiguration config, ILoggerFactory loggerFactory)
+        protected DataSender(TelemetryConfiguration config, ILoggerFactory? loggerFactory)
         {
             _config = config;
             _logger = new TelemetryLogging(loggerFactory);
